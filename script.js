@@ -1,3 +1,5 @@
+let aaplPriceData;
+let googlPriceData;
 // Generate random price data
 function generatePriceData() {
     return Math.random() * 1000;
@@ -76,6 +78,23 @@ function createChart(chartId, label, priceData) {
   
   // Function to handle buying a stock
   function buyStock(stock) {
+    let priceData;
+    let stockPriceElement;
+    let accountBalanceElement;
+  
+    if (stock === 'AAPL') {
+      priceData = aaplPriceData;
+      stockPriceElement = document.getElementById('aapl-price');
+      accountBalanceElement = document.getElementById('account-balance');
+    } else if (stock === 'GOOGL') {
+      priceData = googlPriceData;
+      stockPriceElement = document.getElementById('googl-price');
+      accountBalanceElement = document.getElementById('account-balance');
+    } else {
+      // Handle other stocks if needed
+      return;
+    }
+  
     const quantityInput = document.getElementById(`${stock.toLowerCase()}-quantity`);
     const quantity = parseInt(quantityInput.value);
     if (isNaN(quantity) || quantity < 1) {
@@ -83,9 +102,9 @@ function createChart(chartId, label, priceData) {
       return;
     }
   
-    const stockPrice = parseFloat(document.getElementById(`${stock.toLowerCase()}-price`).textContent.substr(1));
+    const stockPrice = priceData[priceData.length - 1];
     const totalCost = quantity * stockPrice;
-    const accountBalance = parseFloat(document.getElementById('account-balance').textContent.substr(1));
+    const accountBalance = parseFloat(accountBalanceElement.textContent.substr(1));
   
     if (totalCost > accountBalance) {
       alert('Insufficient account balance');
@@ -93,9 +112,10 @@ function createChart(chartId, label, priceData) {
     }
   
     const newBalance = accountBalance - totalCost;
-    document.getElementById('account-balance').textContent = `$${newBalance.toFixed(2)}`;
+    accountBalanceElement.textContent = `$${newBalance.toFixed(2)}`;
     alert(`Successfully bought ${quantity} shares of ${stock} for $${totalCost.toFixed(2)}`);
   }
+  
   // Function to handle selling a stock
 function sellStock(stock) {
     const quantityInput = document.getElementById(`${stock.toLowerCase()}-quantity`);
