@@ -105,7 +105,7 @@ function buyStock(stock) {
 
   const stockPrice = priceData[priceData.length - 1]; // Retrieve the current price of the stock
   const totalCost = quantity * stockPrice;
-  const accountBalance = parseFloat(accountBalanceElement.textContent);
+  const accountBalance = parseFloat(accountBalanceElement.innerText.replace('$', ''));
 
   if (totalCost > accountBalance) {
     alert('Insufficient account balance');
@@ -113,7 +113,7 @@ function buyStock(stock) {
   }
 
   const newBalance = accountBalance - totalCost;
-  accountBalanceElement.textContent = newBalance.toFixed(2);
+  accountBalanceElement.innerText = '$' + newBalance.toFixed(2);
   alert(`Successfully bought ${quantity} shares of ${stock} for $${totalCost.toFixed(2)}`);
 }
 
@@ -143,13 +143,13 @@ function sellStock(stock) {
     return;
   }
 
-  const stockPrice = parseFloat(stockPriceElement.textContent);
+  const stockPrice = parseFloat(stockPriceElement.innerText.replace('$', ''));
   const totalSale = quantity * stockPrice;
-  const accountBalance = parseFloat(accountBalanceElement.textContent);
+  const accountBalance = parseFloat(accountBalanceElement.innerText.replace('$', ''));
 
   if (quantity > 0 && quantity <= quantityInput.max) {
     const newBalance = accountBalance + totalSale;
-    accountBalanceElement.textContent = newBalance.toFixed(2);
+    accountBalanceElement.innerText = '$' + newBalance.toFixed(2);
     alert(`Successfully sold ${quantity} shares of ${stock} for $${totalSale.toFixed(2)}`);
     quantityInput.value = '';
   } else {
