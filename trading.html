@@ -22,18 +22,19 @@
     <main>
       <section id="charts" class="section">
         <h2>Trading Dashboard</h2>
-        <div id="account-balance">$1000.00</div>
+        <div class="balancetext">Account Balance: </div>
+        <div id="account-balance" style="color:red; text-decoration: solid;">$1000.00</div>
         <div class="chart-options">
-          <button id="timeframebtn" onclick="changeChartInterval('daily')">Daily</button>
-          <button id="timeframebtn" onclick="changeChartInterval('hourly')">Hourly</button>
-          <button id="timeframebtn" onclick="changeChartInterval('minute')">Minute</button>
+          <button id="timeframebtn1" onclick="changeChartInterval('daily')">Daily</button>
+          <button id="timeframebtn2" onclick="changeChartInterval('hourly')">Hourly</button>
+          <button id="timeframebtn3" onclick="changeChartInterval('minute')">Minute</button>
         </div>
         <div class="stock-chart" id="aapl-chart-section">
           <canvas id="aapl-chart"></canvas>
           <div class="stock-actions">
             <input type="number" id="aapl-quantity" min="1" max="100" placeholder="Qty">
-            <button onclick="buyStock('AAPL')">Buy</button>
-            <button onclick="sellStock('AAPL')">Sell</button>
+            <button id="buybtn" onclick="buyStock('AAPL')">Buy</button>
+            <button id="sellbtn"onclick="sellStock('AAPL')">Sell</button>
           </div>
         </div>
         <div class="stock-chart" id="googl-chart-section" style="display: none;">

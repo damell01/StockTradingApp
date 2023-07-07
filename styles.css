@@ -3,15 +3,7 @@ body, h1, h2, p, ul, li {
   margin: 0;
   padding: 0;
 }
-#timeframebtn{
-  background-color:red;
-  border-radius: 75%;
-  -webkit-border-radius: 75%;
-  -moz-border-radius: 75%;
-  -ms-border-radius: 75%;
-  -o-border-radius: 75%;
-  cursor:pointer;
-}
+
     .container {
       max-width: 1500px;
       margin: 0 auto;
@@ -99,6 +91,150 @@ p {
 }
 canvas{
   overflow: visible;
+  margin-top: 35px;
+}
+#timeframebtn1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family:  'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  position: absolute;
+  left:85vh;
+  color: #fff;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}#timeframebtn2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family:  'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  position: absolute;
+  left:97vh;
+  color: #fff;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+#timeframebtn3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family:  'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  position: absolute;
+  left:110vh;
+  color: #fff;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+#buybtn{
+  
+  align-items: center;
+  padding: 6px 14px;
+  font-family:  'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  position: absolute;
+  left:110vh;
+
+  color: #fff;
+  background: linear-gradient(180deg, #077412 0%, #14f704c9 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+#sellbtn{
+  
+  align-items: center;
+  padding: 6px 14px;
+  font-family:  'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  position: absolute;
+  left:120vh;
+
+  color: #fff;
+  background: linear-gradient(180deg, #bf0d0d 0%, #ff0505 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+button#googToggle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family:  'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  position: absolute;
+  left:110vh;
+
+  color: #fff;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+button#googToggle {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+button#aaplToggle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family:  'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  position: absolute;
+  left:80vh;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button#aaplToggle {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
 }
 
 .cta-button:hover {
