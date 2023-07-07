@@ -45,7 +45,16 @@
             <button onclick="sellStock('GOOGL')">Sell</button>
           </div>
         </div>
-        <div class="toggle-chart">
+        <div class="sidebar"> 
+            <label for="aapl-quantity">You own </label>
+            <div id="applQuantity"> 0</div>
+            <label for="aapl-quantity">share(s) of AAPL </label>
+<br><br><br>
+            <label for="googl-quantity">You own </label>
+            <div id="googlQuantity"> 0</div>
+            <label for="googl-quantity">share(s) of GOOGL </label>
+        </div>
+        <div class="toggle-chart"> 
             <button id="aaplToggle" onclick="toggleChart('aapl-chart-section', 'googl-chart-section')">Click for APPL</button>
             <button id="googToggle" onclick="toggleChart('googl-chart-section', 'aapl-chart-section')">Click for GOOGL</button>
           </div>

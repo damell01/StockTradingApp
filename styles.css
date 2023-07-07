@@ -3,6 +3,12 @@ body, h1, h2, p, ul, li {
   margin: 0;
   padding: 0;
 }
+.sidebar{
+  left:10vh;
+  position:absolute;
+  top:25vh;
+  height: 100vh;
+}
 
     .container {
       max-width: 1500px;

@@ -7,6 +7,7 @@ let googlSharesOwned = 0;
 // Function to generate random stock prices
 function generateRandomPrices() {
   return Math.random() * 1000;
+  if 
 }
 
 // Function to create a chart
@@ -180,8 +181,10 @@ function buyStock(stock) {
     // Update shares owned
     if (stock === 'AAPL') {
       aaplSharesOwned += quantity;
+      document.getElementById('applQuantity').innerHTML = aaplSharesOwned;
     } else if (stock === 'GOOGL') {
       googlSharesOwned += quantity;
+      document.getElementById('googlQuantity').innerHTML = googlSharesOwned;
     }
   }
   
@@ -234,10 +237,14 @@ function buyStock(stock) {
     // Update shares owned
     if (stock === 'AAPL') {
       aaplSharesOwned -= quantity;
+      document.getElementById('applQuantity').textContent = aaplSharesOwned;
     } else if (stock === 'GOOGL') {
       googlSharesOwned -= quantity;
+      document.getElementById('googlQuantity').textContent = googlSharesOwned;
     }
   }
+  
+  // Switches Charts 
   function toggleChart(chartToShowId, chartToHideId) {
     const chartToShow = document.getElementById(chartToShowId);
     const chartToHide = document.getElementById(chartToHideId);
