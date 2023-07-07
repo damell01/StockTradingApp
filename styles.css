@@ -3,7 +3,15 @@ body, h1, h2, p, ul, li {
   margin: 0;
   padding: 0;
 }
-
+#timeframebtn{
+  background-color:red;
+  border-radius: 75%;
+  -webkit-border-radius: 75%;
+  -moz-border-radius: 75%;
+  -ms-border-radius: 75%;
+  -o-border-radius: 75%;
+  cursor:pointer;
+}
     .container {
       max-width: 1500px;
       margin: 0 auto;
@@ -88,6 +96,9 @@ p {
   border-radius: 4px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
+}
+canvas{
+  overflow: visible;
 }
 
 .cta-button:hover {

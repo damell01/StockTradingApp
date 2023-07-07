@@ -11,7 +11,7 @@
       <h1 class="app-title">Trading App</h1>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/index.htm">Home</a></li>
           <li><a href="#charts">Charts</a></li>
           <li id="activelink"><a href="#trading">Trading</a></li>
           <li><a href="#transactions">Transactions</a></li>
@@ -21,23 +21,22 @@
     
     <main>
       <section id="charts" class="section">
-        <h2>Charts</h2>
+        <h2>Trading Dashboard</h2>
         <div id="account-balance">$1000.00</div>
         <div class="chart-options">
-          <button onclick="changeChartInterval('daily')">Daily</button>
-          <button onclick="changeChartInterval('hourly')">Hourly</button>
-          <button onclick="changeChartInterval('minute')">Minute</button>
+          <button id="timeframebtn" onclick="changeChartInterval('daily')">Daily</button>
+          <button id="timeframebtn" onclick="changeChartInterval('hourly')">Hourly</button>
+          <button id="timeframebtn" onclick="changeChartInterval('minute')">Minute</button>
         </div>
-        <div class="stock-chart">
+        <div class="stock-chart" id="aapl-chart-section">
           <canvas id="aapl-chart"></canvas>
           <div class="stock-actions">
             <input type="number" id="aapl-quantity" min="1" max="100" placeholder="Qty">
             <button onclick="buyStock('AAPL')">Buy</button>
             <button onclick="sellStock('AAPL')">Sell</button>
           </div>
-          
         </div>
-        <div class="stock-chart" style="display: none;">
+        <div class="stock-chart" id="googl-chart-section" style="display: none;">
           <canvas id="googl-chart"></canvas>
           <div class="stock-actions">
             <input type="number" id="googl-quantity" min="1" max="100" placeholder="Qty">
@@ -45,6 +44,10 @@
             <button onclick="sellStock('GOOGL')">Sell</button>
           </div>
         </div>
+        <div class="toggle-chart">
+            <button id="aaplToggle" onclick="toggleChart('aapl-chart-section', 'googl-chart-section')">Click for APPL</button>
+            <button id="googToggle" onclick="toggleChart('googl-chart-section', 'aapl-chart-section')">Click for GOOGL</button>
+          </div>
       </section>
     </main>
     
