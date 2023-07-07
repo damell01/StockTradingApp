@@ -19,9 +19,10 @@
       </nav>
     </header>
     
-    <main> <div id="account-balance">$1000.00</div>
+    <main>
       <section id="charts" class="section">
         <h2>Charts</h2>
+        <div id="account-balance">$1000.00</div>
         <div class="chart-options">
           <button onclick="changeChartInterval('daily')">Daily</button>
           <button onclick="changeChartInterval('hourly')">Hourly</button>
@@ -30,28 +31,26 @@
         <div class="stock-chart">
           <canvas id="aapl-chart"></canvas>
           <div class="stock-actions">
-            <input type="number" id="aapl-quantity" min="1" placeholder="Qty">
+            <input type="number" id="aapl-quantity" min="1" max="100" placeholder="Qty">
             <button onclick="buyStock('AAPL')">Buy</button>
             <button onclick="sellStock('AAPL')">Sell</button>
           </div>
+          
         </div>
         <div class="stock-chart" style="display: none;">
           <canvas id="googl-chart"></canvas>
           <div class="stock-actions">
-            <input type="number" id="googl-quantity" min="1" placeholder="Qty">
+            <input type="number" id="googl-quantity" min="1" max="100" placeholder="Qty">
             <button onclick="buyStock('GOOGL')">Buy</button>
-            <button onclick="sellStock('GOOGL')">Sell</button> 
-
+            <button onclick="sellStock('GOOGL')">Sell</button>
           </div>
-      
-      </section>  </div>           >
+        </div>
+      </section>
     </main>
     
     <footer>
       <p>&copy; 2023 Trading App. All rights reserved.</p>
     </footer>
-    
-   
   </div>
   
   <script src="script.js"></script>

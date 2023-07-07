@@ -1,3 +1,4 @@
+
 let aaplPriceData = [];
 let googlPriceData = [];
 
@@ -105,7 +106,12 @@ function buyStock(stock) {
 
   const stockPrice = priceData[priceData.length - 1]; // Retrieve the current price of the stock
   const totalCost = quantity * stockPrice;
-  const accountBalance = parseFloat(accountBalanceElement.innerText.replace('$', ''));
+  const accountBalance = parseFloat(accountBalanceElement.textContent.replace('$', ''));
+
+  if (isNaN(totalCost) || isNaN(accountBalance)) {
+    alert('Unable to retrieve stock price or account balance');
+    return;
+  }
 
   if (totalCost > accountBalance) {
     alert('Insufficient account balance');
@@ -113,7 +119,7 @@ function buyStock(stock) {
   }
 
   const newBalance = accountBalance - totalCost;
-  accountBalanceElement.innerText = '$' + newBalance.toFixed(2);
+  accountBalanceElement.textContent = '$' + newBalance.toFixed(2);
   alert(`Successfully bought ${quantity} shares of ${stock} for $${totalCost.toFixed(2)}`);
 }
 
@@ -129,7 +135,6 @@ function sellStock(stock) {
   let priceData;
   let stockPriceElement;
   let accountBalanceElement;
-
   if (stock === 'AAPL') {
     priceData = aaplPriceData;
     stockPriceElement = document.getElementById('aapl-price');
@@ -143,13 +148,23 @@ function sellStock(stock) {
     return;
   }
 
-  const stockPrice = parseFloat(stockPriceElement.innerText.replace('$', ''));
+  if (priceData.length === 0) {
+    alert('Unable to retrieve stock price or account balance');
+    return;
+  }
+
+  const stockPrice = priceData[priceData.length - 1];
   const totalSale = quantity * stockPrice;
-  const accountBalance = parseFloat(accountBalanceElement.innerText.replace('$', ''));
+  const accountBalance = parseFloat(accountBalanceElement.textContent.replace('$', ''));
+
+  if (isNaN(stockPrice) || isNaN(accountBalance)) {
+    alert('Unable to retrieve stock price or account balance');
+    return;
+  }
 
   if (quantity > 0 && quantity <= quantityInput.max) {
     const newBalance = accountBalance + totalSale;
-    accountBalanceElement.innerText = '$' + newBalance.toFixed(2);
+    accountBalanceElement.textContent = '$' + newBalance.toFixed(2);
     alert(`Successfully sold ${quantity} shares of ${stock} for $${totalSale.toFixed(2)}`);
     quantityInput.value = '';
   } else {
