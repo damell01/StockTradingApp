@@ -1,31 +1,91 @@
 /* Reset default margin and padding */
+body{
+  background-color: black;
+}
 body, h1, h2, p, ul, li {
   margin: 0;
   padding: 0;
 }
-.sidebar{
-  left:10vh;
-  position:absolute;
-  top:25vh;
-  height: 100vh;
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
 }
 
-    .container {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .stock-chart {
-      margin-bottom: 20px;
-      height: 60vh; /* Set a fixed height for the chart container */
-      width:80vh;
-    }
-
-body {
-  background-color: #222;
-  font-family: Arial, sans-serif;
+.popup {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  max-width: 400px;
 }
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.popup-title {
+  margin-bottom: 10px;
+}
+
+.popup-container.show {
+  visibility: visible;
+  opacity: 1;
+}
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-width: 90%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.popup h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.popup p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
 
 .container {
   display: flex;
@@ -33,7 +93,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  color: #fff;
+ background-color: black;
 }
 
 header {
@@ -77,174 +137,142 @@ h2 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-p {
+.chart-options {
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
-  color: #ccc;
+  justify-content: space-evenly;
+}
+#balancetext{
+  color:white;
+}
+.reset-bal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
+  background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.chart-options button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
+  background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #00aaff;
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 4px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease;
+.stock-chart {
+  margin-bottom: 20px;
+  height: 60vh; /* Set a fixed height for the chart container */
+  width: 80vh;
 }
-canvas{
-  overflow: visible;
-  margin-top: 35px;
+
+.stock-actions {
+  position: relative;
+  color:white;
 }
-#timeframebtn1{
-  display: flex;
-  flex-direction: column;
+
+.stock-actions input[type="number"],
+.stock-actions button {
+  margin-top: 10px;
+}
+
+button#buybtn,
+button#sellbtn {
   align-items: center;
   padding: 6px 14px;
-  font-family:  'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   border-radius: 6px;
   border: none;
   position: absolute;
-  left:85vh;
-  color: #fff;
-  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
-   background-origin: border-box;
-  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  cursor: pointer;
-}#timeframebtn2{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 6px 14px;
-  font-family:  'Roboto', sans-serif;
-  border-radius: 6px;
-  border: none;
-  position: absolute;
-  left:97vh;
-  color: #fff;
-  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
-   background-origin: border-box;
-  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  cursor: pointer;
-}
-#timeframebtn3{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 6px 14px;
-  font-family:  'Roboto', sans-serif;
-  border-radius: 6px;
-  border: none;
-  position: absolute;
-  left:110vh;
-  color: #fff;
-  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
-   background-origin: border-box;
-  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  cursor: pointer;
-}
-#buybtn{
   
-  align-items: center;
-  padding: 6px 14px;
-  font-family:  'Roboto', sans-serif;
-  border-radius: 6px;
-  border: none;
-  position: absolute;
-  left:110vh;
-
   color: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+button#buybtn {
   background: linear-gradient(180deg, #077412 0%, #14f704c9 100%);
-   background-origin: border-box;
+  background-origin: border-box;
   box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  cursor: pointer;
+  left: 60vh;
 }
-#sellbtn{
-  
-  align-items: center;
-  padding: 6px 14px;
-  font-family:  'Roboto', sans-serif;
-  border-radius: 6px;
-  border: none;
-  position: absolute;
-  left:120vh;
 
-  color: #fff;
+button#sellbtn {
   background: linear-gradient(180deg, #bf0d0d 0%, #ff0505 100%);
-   background-origin: border-box;
+  background-origin: border-box;
   box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  cursor: pointer;
+  left: 70vh;
 }
-button#googToggle{
+
+button#googToggle,
+button#aaplToggle {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 6px 14px;
-  font-family:  'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   border-radius: 6px;
   border: none;
-  position: absolute;
-  left:110vh;
-
+  cursor: pointer;
   color: #fff;
-  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
-   background-origin: border-box;
-  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  cursor: pointer;
 }
 
 button#googToggle {
-  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25);
   outline: 0;
-}
-button#aaplToggle{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 6px 14px;
-  font-family:  'Roboto', sans-serif;
-  border-radius: 6px;
-  border: none;
   position: absolute;
-  left:80vh;
-  cursor: pointer;
-  color: #fff;
-  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
-   background-origin: border-box;
-  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  left:29vh;
+  background-color: red;
+  top:43.2vh;
 }
 
 button#aaplToggle {
-  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25);
   outline: 0;
+  background-color: red;
+  left:29vh;
+ position: absolute;
+  top:26vh  !important;
 }
 
-.cta-button:hover {
-  background-color: #0088cc;
+.sidebar {
+  left: 10vh;
+  position: absolute;
+  top: 25vh;
+  height: 100vh;
+}
+
+.sidebar label,
+.sidebar div {
+  margin-bottom: 10px;
+  position: relative;
+  color: white;
 }
 
 footer {
@@ -252,4 +280,120 @@ footer {
   padding-top: 20px;
   color: #ccc;
   font-size: 14px;
+}
+
+/* Media queries for responsive styles */
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .stock-chart {
+    height: 40vh;
+    width: 70vh;
+  }
+
+  .sidebar {
+    top: 20vh;
+  }
+
+  button#buybtn,
+  button#sellbtn {
+    left: 60vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 5px;
+  }
+
+  .stock-chart {
+    height: 30vh;
+    width: 50vh;
+  }
+
+  .sidebar {
+    top: 10vh;
+  }
+
+  button#buybtn,
+  button#sellbtn {
+    left: 30vh;
+  }
+}
+/* Styles for Mobile Devices */
+@media (max-width: 767px) {
+  .container {
+    padding: 20px;
+  }
+
+  .app-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .stock-container {
+    margin-bottom: 20px;
+  }
+
+  .stock-info,
+  .stock-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .buy-button,
+  .sell-button {
+    width: 120px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .buy-button:hover,
+  .sell-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Adjust layout for smaller screens */
+  .stock-info {
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .stock-actions {
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .buy-button,
+  .sell-button {
+    width: 100%;
+  }
+
+  /* Adjust chart size for mobile */
+  .stock-chart {
+    width: 100%;
+    height: 200px;
+  }
 }

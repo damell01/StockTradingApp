@@ -8,7 +8,6 @@
 <body>
   <div class="container">
     <header>
-      <h1 class="app-title">Trading App</h1>
       <nav>
         <ul class="nav-links">
           <li><a href="/index.htm">Home</a></li>
@@ -20,39 +19,51 @@
     </header>
     
     <main>
+        <div id="popupContainer" class="popup-container">
+            <div class="popup">
+              <span class="close-button" onclick="closePopup()">×</span>
+              <h3 id="popupTitle"></h3>
+              <p id="popupContent"></p>
+            </div>
+          </div>
+          
       <section id="charts" class="section">
+        
         <h2>Trading Dashboard</h2>
-        <div class="balancetext">Account Balance: </div>
-        <div id="account-balance" style="color:red; text-decoration: solid;">$1000.00</div>
+        <button onclick="resetBalance()" class="resetBal"> Reset Balance</button>
+        <div id="balancetext">Account Balance:</div>
+        <div id="account-balance" style="color:white; text-decoration: solid;">$1000.00</div>
         <div class="chart-options">
-          <button id="timeframebtn1" onclick="changeChartInterval('daily')">Daily</button>
-          <button id="timeframebtn2" onclick="changeChartInterval('hourly')">Hourly</button>
-          <button id="timeframebtn3" onclick="changeChartInterval('minute')">Minute</button>
+          <button id="timeframebtn1" class="chart-options" onclick="changeChartInterval('daily')">Daily</button>
+          <button class="chart-options" id="timeframebtn2" onclick="changeChartInterval('hourly')">Hourly</button>
+          <button class="chart-options" id="timeframebtn3" onclick="changeChartInterval('minute')">Minute</button>
         </div>
         <div class="stock-chart" id="aapl-chart-section">
           <canvas id="aapl-chart"></canvas>
           <div class="stock-actions">
+            <label for="aapl-quantity"> Enter a quantity to buy/sell</label>
             <input type="number" id="aapl-quantity" min="1" max="100" placeholder="Qty">
-            <button id="buybtn" onclick="buyStock('AAPL')">Buy</button>
-            <button id="sellbtn"onclick="sellStock('AAPL')">Sell</button>
+            <button id="buybtn-aapl" onclick="buyStock('AAPL')">Buy</button>
+            <button id="sellbtn-aapl" onclick="sellStock('AAPL')">Sell</button>
           </div>
         </div>
         <div class="stock-chart" id="googl-chart-section" style="display: none;">
           <canvas id="googl-chart"></canvas>
           <div class="stock-actions">
+            <label for="googl-quantity">Enter a quantity to buy/sell</label>
             <input type="number" id="googl-quantity" min="1" max="100" placeholder="Qty">
-            <button onclick="buyStock('GOOGL')">Buy</button>
-            <button onclick="sellStock('GOOGL')">Sell</button>
+            <button id="buybtn-googl" onclick="buyStock('GOOGL')">Buy</button>
+            <button id="sellbtn-googl" onclick="sellStock('GOOGL')">Sell</button>
           </div>
         </div>
         <div class="sidebar"> 
-            <label for="aapl-quantity">You own </label>
-            <div id="applQuantity"> 0</div>
-            <label for="aapl-quantity">share(s) of AAPL </label>
-<br><br><br>
-            <label for="googl-quantity">You own </label>
-            <div id="googlQuantity"> 0</div>
-            <label for="googl-quantity">share(s) of GOOGL </label>
+            <label for="aapl-quantity">You own</label>
+            <div id="applQuantity">0</div>
+            <label for="aapl-quantity">share(s) of AAPL</label>
+            <br><br><br>
+            <label for="googl-quantity">You own</label>
+            <div id="googlQuantity">0</div>
+            <label for="googl-quantity">share(s) of GOOGL</label>
         </div>
         <div class="toggle-chart"> 
             <button id="aaplToggle" onclick="toggleChart('aapl-chart-section', 'googl-chart-section')">Click for APPL</button>
@@ -62,7 +73,7 @@
     </main>
     
     <footer>
-      <p>&copy; 2023 Trading App. All rights reserved.</p>
+     
     </footer>
   </div>
   
