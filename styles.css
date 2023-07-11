@@ -1,4 +1,5 @@
 /* Reset default margin and padding */
+
 body{
   background-color: black;
 }
@@ -6,21 +7,7 @@ body, h1, h2, p, ul, li {
   margin: 0;
   padding: 0;
 }
-.popup-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.3s ease;
-}
+
 
 .popup {
   position: relative;
@@ -28,6 +15,11 @@ body, h1, h2, p, ul, li {
   padding: 20px;
   border-radius: 4px;
   max-width: 400px;
+  transition: 5ms linear;
+  -webkit-transition: 5ms linear;
+  -moz-transition: 5ms linear;
+  -ms-transition: 5ms linear;
+  -o-transition: 5ms linear;
 }
 
 .close-button {
@@ -46,14 +38,19 @@ body, h1, h2, p, ul, li {
   opacity: 1;
 }
 .popup-container {
-  display: none;
+opacity: 0;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 25%;
+  left: 50%;
+  width: 40%;
+  height: 20%;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 9999;
+  transition: 5ms linear;
+  -webkit-transition: 5ms linear;
+  -moz-transition: 5ms linear;
+  -ms-transition: 5ms linear;
+  -o-transition: 5ms linear;
 }
 
 .popup {
@@ -197,8 +194,8 @@ h2 {
   margin-top: 10px;
 }
 
-button#buybtn,
-button#sellbtn {
+button#buybtn-aapl,
+button#sellbtn-aapl,button#buybtn-googl,button#sellbtn-googl {
   align-items: center;
   padding: 6px 14px;
   font-family: 'Roboto', sans-serif;
@@ -206,21 +203,21 @@ button#sellbtn {
   border: none;
   position: absolute;
   
-  color: #fff;
+ 
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   cursor: pointer;
 }
 
-button#buybtn {
+button#buybtn-aapl,button#buybtn-googl {
   background: linear-gradient(180deg, #077412 0%, #14f704c9 100%);
   background-origin: border-box;
   box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
   left: 60vh;
 }
 
-button#sellbtn {
+button#sellbtn-aapl,button#sellbtn-googl {
   background: linear-gradient(180deg, #bf0d0d 0%, #ff0505 100%);
   background-origin: border-box;
   box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);

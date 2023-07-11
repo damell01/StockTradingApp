@@ -30,7 +30,7 @@ function createChart(chartId, label, priceData) {
     },
     options: {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       scales: {
         x: {
           display: true,
@@ -84,41 +84,48 @@ function updateStockPrices() {
 
 // Function to change chart interval
 function changeChartInterval(interval) {
-  let numDataPoints;
-  let dataInterval;
-  let maxTicksLimit;
-
-  if (interval === 'daily') {
-    numDataPoints = 10;
-    dataInterval = 'Day';
-    maxTicksLimit = 10;
-  } else if (interval === 'hourly') {
-    numDataPoints = 24;
-    dataInterval = 'Hour';
-    maxTicksLimit = 24;
-  } else if (interval === 'minute') {
-    numDataPoints = 60;
-    dataInterval = 'Minute';
-    maxTicksLimit = 60;
-  } else {
-    return; // Invalid interval
+    let numDataPoints;
+    let dataInterval;
+    let maxTicksLimit;
+  
+    if (interval === 'daily') {
+      numDataPoints = 10;
+      dataInterval = 'Day';
+      maxTicksLimit = 10;
+    } else if (interval === 'hourly') {
+      numDataPoints = 24;
+      dataInterval = 'Hour';
+      maxTicksLimit = 24;
+    } else if (interval === 'minute') {
+      numDataPoints = 60;
+      dataInterval = 'Minute';
+      maxTicksLimit = 60;
+    } else {
+      return; // Invalid interval
+    }
+  
+    // Generate new data based on the selected interval
+    const stockPriceData = interval === 'daily' ? generateRandomPrices : generateRandomPricesForInterval;
+  
+    aaplPriceData = Array.from({ length: numDataPoints }, stockPriceData);
+    googlPriceData = Array.from({ length: numDataPoints }, stockPriceData);
+  
+    // Update the chart data and options
+    updateChartData(aaplChart, 'AAPL', aaplPriceData, numDataPoints, dataInterval, maxTicksLimit);
+    updateChartData(googlChart, 'GOOGL', googlPriceData, numDataPoints, dataInterval, maxTicksLimit);
   }
-
-  // Generate new data based on the selected interval
-  aaplPriceData = Array.from({ length: numDataPoints }, generateRandomPrices);
-  googlPriceData = Array.from({ length: numDataPoints }, generateRandomPrices);
-
-  // Update the chart data and options
-  aaplChart.data.datasets[0].data = aaplPriceData;
-  aaplChart.data.labels = Array.from({ length: numDataPoints }, (_, i) => `${dataInterval} ${i + 1}`);
-  aaplChart.options.scales.x.ticks.maxTicksLimit = maxTicksLimit;
-  aaplChart.update();
-
-  googlChart.data.datasets[0].data = googlPriceData;
-  googlChart.data.labels = Array.from({ length: numDataPoints }, (_, i) => `${dataInterval} ${i + 1}`);
-  googlChart.options.scales.x.ticks.maxTicksLimit = maxTicksLimit;
-  googlChart.update();
-}
+  
+  function generateRandomPricesForInterval() {
+    return Math.random() * 100;
+  }
+  
+  function updateChartData(chart, label, priceData, numDataPoints, dataInterval, maxTicksLimit) {
+    chart.data.datasets[0].data = priceData;
+    chart.data.labels = Array.from({ length: numDataPoints }, (_, i) => `${dataInterval} ${i + 1}`);
+    chart.options.scales.x.ticks.maxTicksLimit = maxTicksLimit;
+    chart.update();
+  }
+  
 
 // Generate initial data for AAPL and GOOGL
 aaplPriceData = Array.from({ length: 10 }, generateRandomPrices);
@@ -263,6 +270,7 @@ function resetBalance(){
         popupTitle.textContent = title;
         popupContent.textContent = content;
         popupContainer.style.display = 'block';
+        popupContainer.style.opacity=1;
       }
       
       function closePopup() {
