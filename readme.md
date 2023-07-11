@@ -2,7 +2,7 @@
 
 # Trading App
 
-Welcome to the Trading App! This web application allows users to simulate buying and selling stocks. It provides real-time stock price charts, account balance tracking, and the ability to make transactions.
+Welcome to the Trading App! This web application allows users to simulate buying and selling stocks. It provides stock price charts, account balance tracking, and the ability to make transactions.
 
 ## Features
 
